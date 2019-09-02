@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}List{% endblock title %}
+
+{% block content %}
+<br>
+
+
+{%for r in results %}
+
+	Type: {{r.type}} <br>
+	Login: {{r.actor.display_login}} <br>
+	Avatar: 
+ <img class="card-img-top" src="{{r.actor.avatar_url}}" alt="Hey Noob, look at me...">
+
+{% endfor  %}
+
+
+</div>
+{# {%if results.next %}
+<form action='{%url 'list'%}' >
+    <input name='nn' type="hidden" value="{{results.next}}">
+    <button type="submit"> Next</button>            
+</form>
+{%endif%}
+
+{%if results.previous %}
+<form action='{%url 'list'%}' >
+    <input name='nn' type="hidden" value="{{results.previous}}">
+    <button type="submit"> Previous</button>
+</form>
+{%endif%}
+
+
+{%for result in results.results%}
+<h5 class="card-title"> {{result.name}}</h5>
+<form action="{% url 'detail'%}" >
+    <input name='detail' type="hidden" value="{{result.url}}">
+    <button type="submit"> Read More...</button>
+</form>
+{%endfor%}
+
+ #}
+
+
+
+
+
+
+
+{% endblock content %}
